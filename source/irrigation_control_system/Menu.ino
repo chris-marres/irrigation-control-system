@@ -193,7 +193,512 @@ void menuDisplay(){
       
       break;
     }
-  
+
+    case 7: {
+
+      lcd.setCursor(0, 0);
+      Blinkable(0, 0, "Alarm 1", alarm1State);
+      lcd.setCursor(9, 0);
+      if (scheduler.getAlarm(0).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 1);
+      Blinkable(0, 1, "Alarm 2", alarm2State);
+      lcd.setCursor(9, 1);
+      if (scheduler.getAlarm(1).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 2);
+      Blinkable(0, 2, "Alarm 3", alarm3State);
+      lcd.setCursor(9, 2);
+      if (scheduler.getAlarm(2).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 3);
+      Blinkable(0, 3, "Alarm 4", alarm4State);
+      lcd.setCursor(9, 3);
+      if (scheduler.getAlarm(3).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(19, 3);
+      lcd.write(4);
+      
+      break;
+    }
+
+    case 8: {
+
+      lcd.setCursor(0, 0);
+      Blinkable(0, 0, "Alarm 2", alarm2State);
+      lcd.setCursor(9, 0);
+      if (scheduler.getAlarm(1).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 1);
+      Blinkable(0, 1, "Alarm 3", alarm3State);
+      lcd.setCursor(9, 1);
+      if (scheduler.getAlarm(2).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 2);
+      Blinkable(0, 2, "Alarm 4", alarm4State);
+      lcd.setCursor(9, 2);
+      if (scheduler.getAlarm(3).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 3);
+      Blinkable(0, 3, "Alarm 5", alarm5State);
+      lcd.setCursor(9, 3);
+      if (scheduler.getAlarm(4).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(19, 0);
+      lcd.write(3);
+      lcd.setCursor(19, 3);
+      lcd.write(4);
+      
+      break;
+    }
+
+    case 9: {
+
+      lcd.setCursor(0, 0);
+      Blinkable(0, 0, "Alarm 3", alarm3State);
+      lcd.setCursor(9, 0);
+      if (scheduler.getAlarm(2).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 1);
+      Blinkable(0, 1, "Alarm 4", alarm4State);
+      lcd.setCursor(9, 1);
+      if (scheduler.getAlarm(3).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 2);
+      Blinkable(0, 2, "Alarm 5", alarm5State);
+      lcd.setCursor(9, 2);
+      if (scheduler.getAlarm(4).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 3);
+      Blinkable(0, 3, "Alarm 6", alarm6State);
+      lcd.setCursor(9, 3);
+      if (scheduler.getAlarm(5).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(19, 0);
+      lcd.write(3);
+      lcd.setCursor(19, 3);
+      lcd.write(4);
+      
+      break;
+    }
+
+    case 10: {
+
+      lcd.setCursor(0, 0);
+      Blinkable(0, 0, "Alarm 4", alarm4State);
+      lcd.setCursor(9, 0);
+      if (scheduler.getAlarm(3).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 1);
+      Blinkable(0, 1, "Alarm 5", alarm5State);
+      lcd.setCursor(9, 1);
+      if (scheduler.getAlarm(4).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 2);
+      Blinkable(0, 2, "Alarm 6", alarm6State);
+      lcd.setCursor(9, 2);
+      if (scheduler.getAlarm(5).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 3);
+      Blinkable(0, 3, "Alarm 7", alarm7State);
+      lcd.setCursor(9, 3);
+      if (scheduler.getAlarm(6).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(19, 0);
+      lcd.write(3);
+      lcd.setCursor(19, 3);
+      lcd.write(4);
+      
+      break;
+    }
+
+    case 11: {
+
+      lcd.setCursor(0, 0);
+      Blinkable(0, 0, "Alarm 5", alarm5State);
+      lcd.setCursor(9, 0);
+      if (scheduler.getAlarm(4).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 1);
+      Blinkable(0, 1, "Alarm 6", alarm6State);
+      lcd.setCursor(9, 1);
+      if (scheduler.getAlarm(5).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 2);
+      Blinkable(0, 2, "Alarm 7", alarm7State);
+      lcd.setCursor(9, 2);
+      if (scheduler.getAlarm(6).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 3);
+      Blinkable(0, 3, "Alarm 8", alarm8State);
+      lcd.setCursor(9, 3);
+      if (scheduler.getAlarm(7).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(19, 0);
+      lcd.write(3);
+      lcd.setCursor(19, 3);
+      lcd.write(4);
+      
+      break;
+    }
+
+    case 12: {
+
+      lcd.setCursor(0, 0);
+      Blinkable(0, 0, "Alarm 6", alarm6State);
+      lcd.setCursor(9, 0);
+      if (scheduler.getAlarm(5).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 1);
+      Blinkable(0, 1, "Alarm 7", alarm7State);
+      lcd.setCursor(9, 1);
+      if (scheduler.getAlarm(6).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 2);
+      Blinkable(0, 2, "Alarm 8", alarm8State);
+      lcd.setCursor(9, 2);
+      if (scheduler.getAlarm(7).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 3);
+      Blinkable(0, 3, "Alarm 9", alarm9State);
+      lcd.setCursor(9, 3);
+      if (scheduler.getAlarm(8).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(19, 0);
+      lcd.write(3);
+      lcd.setCursor(19, 3);
+      lcd.write(4);
+      
+      break;
+    }
+
+    case 13: {
+
+      lcd.setCursor(0, 0);
+      Blinkable(0, 0, "Alarm 7", alarm7State);
+      lcd.setCursor(9, 0);
+      if (scheduler.getAlarm(6).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 1);
+      Blinkable(0, 1, "Alarm 8", alarm8State);
+      lcd.setCursor(9, 1);
+      if (scheduler.getAlarm(7).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 2);
+      Blinkable(0, 2, "Alarm 9", alarm9State);
+      lcd.setCursor(9, 2);
+      if (scheduler.getAlarm(8).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(0, 3);
+      Blinkable(0, 3, "Alarm 10", alarm10State);
+      lcd.setCursor(9, 3);
+      if (scheduler.getAlarm(9).enabled()){
+        lcd.print("ENABLED");
+      }
+      else{
+        lcd.print("DISABLED");
+      }
+      lcd.setCursor(19, 0);
+      lcd.write(3);
+
+      break;
+    }
+
+    case 14: {
+
+      lcd.setCursor(0, 0);
+      lcd.print("Alarm ");
+      lcd.print(alarmBeingCalibrated+1);
+      lcd.print(" Calibration");
+      Blinkable(0, 1, "Rep", repState);
+      lcd.setCursor(3, 1);
+      lcd.print(": ");
+      Blinkable(5, 1, AlarmTypeName[tempAlarm.getAlarmType()], alarmTypeNameState);
+      if (tempAlarm.getAlarmType() == 0){
+        Blinkable(0, 2, "Day", alarmDayState);
+        lcd.setCursor(3, 2);
+        lcd.print(": ");
+        Blinkable(5, 2, Days[tempWeekDay - 1], alarmWeekDayState);
+      }
+      else{
+        Blinkable(0, 2, "Start at", alarmDayState);
+        lcd.setCursor(8, 2);
+        lcd.print(": ");
+        Blinkable(10, 2, Days[tempWeekDay - 1], alarmWeekDayState);
+      }
+      Blinkable(0, 3, "Hour/Min", HourMinState);
+      lcd.setCursor(8, 3);
+      lcd.print(":");
+      if (tempAlarmHour < 10){
+        Blinkable1(10, 3, 0, alarmHourState);
+        Blinkable2(11, 3, tempAlarmHour, alarmHourState);
+      }
+      else{
+        Blinkable1(10, 3, tempAlarmHour, alarmHourState);
+      }
+      lcd.setCursor(12, 3);
+      lcd.print(":");
+      if (tempAlarmMinute < 10){
+        Blinkable1(13, 3, 0, alarmMinuteState);
+        Blinkable2(14, 3, tempAlarmMinute, alarmMinuteState);
+      }
+      else{
+        Blinkable1(13, 3, tempAlarmMinute, alarmMinuteState);
+      }
+      lcd.setCursor(19, 3);
+      lcd.write(4);
+      
+      break;
+    }
+
+    case 15: {
+
+      lcd.setCursor(0, 0);
+      lcd.print("Alarm ");
+      lcd.print(alarmBeingCalibrated+1);
+      lcd.print(" Calibration");
+      lcd.setCursor(19, 1);
+      lcd.write(3);
+      if (tempAlarm.getAlarmType() == 0){
+        Blinkable(0, 1, "Day", alarmDayState);
+        lcd.setCursor(3, 1);
+        lcd.print(": ");
+        Blinkable(5, 1, Days[tempWeekDay - 1], alarmWeekDayState);
+      }
+      else{
+        Blinkable(0, 1, "Start at", alarmDayState);
+        lcd.setCursor(8, 1);
+        lcd.print(": ");
+        Blinkable(10, 1, Days[tempWeekDay - 1], alarmWeekDayState);
+      }
+      Blinkable(0, 2, "Hour/Min", HourMinState);
+      lcd.setCursor(8, 2);
+      lcd.print(":");
+      if (tempAlarmHour < 10){
+        Blinkable1(10, 2, 0, alarmHourState);
+        Blinkable2(11, 2, tempAlarmHour, alarmHourState);
+      }
+      else{
+        Blinkable1(10, 2, tempAlarmHour, alarmHourState);
+      }
+      lcd.setCursor(12, 2);
+      lcd.print(":");
+      if (tempAlarmMinute < 10){
+        Blinkable1(13, 2, 0, alarmMinuteState);
+        Blinkable2(14, 2, tempAlarmMinute, alarmMinuteState);
+      }
+      else{
+        Blinkable1(13, 2, tempAlarmMinute, alarmMinuteState);
+      }
+      Blinkable(0, 3, "Duration", durationState);
+      lcd.setCursor(8, 3);
+      lcd.print(":");
+      lcd.setCursor(10, 3);
+      lcd.print("H:");
+      Blinkable1(12, 3, tempAlarmHourDuration, alarmHourDurationState);
+      lcd.setCursor(14, 3);
+      lcd.print("M:");
+      if (tempAlarmMinuteDuration < 10){
+        Blinkable1(16, 3, 0, alarmMinuteDurationState);
+        Blinkable2(17, 3, tempAlarmMinuteDuration, alarmMinuteDurationState);
+      }
+      else{
+        Blinkable1(16, 3, tempAlarmMinuteDuration, alarmMinuteDurationState);
+      }      
+      lcd.setCursor(19, 3);
+      lcd.write(4);
+      
+      break;
+    }
+
+    case 16: {
+
+      lcd.setCursor(0, 0);
+      lcd.print("Alarm ");
+      lcd.print(alarmBeingCalibrated+1);
+      lcd.print(" Calibration");
+      lcd.setCursor(19, 1);
+      lcd.write(3);
+      Blinkable(0, 1, "Hour/Min", HourMinState);
+      lcd.setCursor(8, 1);
+      lcd.print(":");
+      if (tempAlarmHour < 10){
+        Blinkable1(10, 1, 0, alarmHourState);
+        Blinkable2(11, 1, tempAlarmHour, alarmHourState);
+      }
+      else{
+        Blinkable1(10, 1, tempAlarmHour, alarmHourState);
+      }
+      lcd.setCursor(12, 1);
+      lcd.print(":");
+      if (tempAlarmMinute < 10){
+        Blinkable1(13, 1, 0, alarmMinuteState);
+        Blinkable2(14, 1, tempAlarmMinute, alarmMinuteState);
+      }
+      else{
+        Blinkable1(13, 1, tempAlarmMinute, alarmMinuteState);
+      }
+      Blinkable(0, 2, "Duration", durationState);
+      lcd.setCursor(8, 2);
+      lcd.print(":");
+      lcd.setCursor(10, 2);
+      lcd.print("H:");
+      Blinkable1(12, 2, tempAlarmHourDuration, alarmHourDurationState);
+      lcd.setCursor(14, 2);
+      lcd.print("M:");
+      if (tempAlarmMinuteDuration < 10){
+        Blinkable1(16, 2, 0, alarmMinuteDurationState);
+        Blinkable2(17, 2, tempAlarmMinuteDuration, alarmMinuteDurationState);
+      }
+      else{
+        Blinkable1(16, 2, tempAlarmMinuteDuration, alarmMinuteDurationState);
+      }
+      Blinkable(0, 3, "Valve", valveState);
+      lcd.setCursor(5, 3);
+      lcd.print(":");
+      Blinkable1(7, 3, tempAlarmValve, alarmValveState);     
+      
+      break;
+    }
+
+    case 17: {
+
+      lcd.setCursor(0, 0);
+      lcd.print("Would you like to");
+      lcd.setCursor(0, 1);
+      lcd.print("save the changes");
+      lcd.setCursor(0, 2);
+      lcd.print("to Alarm ");
+      lcd.print(alarmBeingCalibrated + 1);
+      Blinkable(5, 3, "Yes", alarmYesState);
+      Blinkable(12, 3, "No", alarmNoState);
+      
+      break;
+    }
+
+    case 18: {
+      
+      lcd.setCursor(0, 0);
+      lcd.print("Alarm ");
+      lcd.print(alarmTry);
+      lcd.print(" is ON and");
+      lcd.setCursor(0, 1);
+      lcd.print("you shouldn't change");
+      lcd.setCursor(0, 2);
+      lcd.print("anything!");
+      Blinkable(10, 3, "OK", okState);
+      
+      break;
+    }
+    
   }
   
 }

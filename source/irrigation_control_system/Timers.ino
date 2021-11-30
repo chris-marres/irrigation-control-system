@@ -31,7 +31,7 @@ void UpdateTimer(){
 
   if (timer == finalTime){
     timerOn = false;
-    digitalWrite(LED1, LOW);
+    digitalWrite(TIMERLED, LOW);
     previousMillis5 = 0;
     timer = 0;
   }

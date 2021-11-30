@@ -23,6 +23,200 @@ void doAction() {
           sleepMode = false;
           previousMillis3 = millis();
         }
+        else if (alarmValveState){
+          if (tempAlarmValve == 5){
+            tempAlarmValve = 1;
+          }
+          else{
+            tempAlarmValve += 1;
+          }
+        }
+        else if (alarmMinuteDurationState){
+          if (tempAlarmMinuteDuration >= 59){
+            tempAlarmMinuteDuration = 0;
+            resetMillis();
+          }
+          else{
+            tempAlarmMinuteDuration += 1;
+            resetMillis();
+          }
+        }
+        else if (alarmHourDurationState){
+          if (tempAlarmHourDuration >= 9){
+            tempAlarmHourDuration = 0;
+          }
+          else{
+            tempAlarmHourDuration += 1;
+          }
+        }
+        else if (alarmMinuteState){
+          if (tempAlarmMinute == 59){
+            resetMillis();
+            tempAlarmMinute = 0;
+          }
+          else{
+            resetMillis();
+            tempAlarmMinute += 1;
+          }
+        }
+        else if (alarmHourState){
+          if (tempAlarmHour == 23){
+            resetMillis();
+            tempAlarmHour = 0;
+          }
+          else{
+            resetMillis();
+            tempAlarmHour += 1;
+          }
+        }
+        else if (alarmWeekDayState){
+          if (tempWeekDay == 7){
+            tempWeekDay = 1;
+            lcd.clear();
+          }
+          else{
+            tempWeekDay += 1;
+            lcd.clear();
+          }
+        }
+        else if (alarmTypeNameState){
+          if (tempAlarm.getAlarmType() == 3){
+            tempAlarm.changeAlarmType(0);
+            lcd.clear();
+          }
+          else{
+            tempAlarm.changeAlarmType(tempAlarm.getAlarmType() + 1);
+            lcd.clear();
+          }
+        }
+        else if (valveState){
+          valveState = false;
+          resetMillis();
+          durationState = true;
+        }
+        else if (durationState){
+          durationState = false;
+          resetMillis();
+          HourMinState = true;
+        }
+        else if (HourMinState and MenuState == 16){
+          HourMinState = false;
+          resetMillis();
+          alarmDayState = true;
+          lcd.clear();
+          MenuState = 15;
+        }
+        else if (HourMinState){
+          HourMinState = false;
+          resetMillis();
+          alarmDayState = true;
+          alarmDayState = true;
+        }
+        else if (alarmDayState and MenuState == 15){
+          alarmDayState = false;
+          resetMillis();
+          repState = true;
+          lcd.clear();
+          MenuState = 14;
+        }
+        else if (alarmDayState){
+          alarmDayState = false;
+          resetMillis();
+          repState = true;
+        }
+        else if (HourMinState){
+          HourMinState = false;
+          resetMillis();
+          alarmDayState = true;
+          alarmDayState = true;
+        }
+        else if (alarm10State){
+          alarm10State = false;
+          resetMillis();
+          alarm9State = true;
+        }
+        else if (alarm9State){
+          alarm9State = false;
+          resetMillis();
+          alarm8State = true;
+        }
+        else if (alarm8State){
+          alarm8State = false;
+          resetMillis();
+          alarm7State = true;
+        }
+        else if (alarm7State and MenuState == 13){
+          alarm7State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 12;
+          alarm6State = true;
+        }
+        else if (alarm7State){
+          alarm7State = false;
+          resetMillis();
+          alarm6State = true;
+        }
+        else if (alarm6State and MenuState == 12){
+          alarm6State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 11;
+          alarm5State = true;
+        }
+        else if (alarm6State){
+          alarm6State = false;
+          resetMillis();
+          alarm5State = true;
+        }
+        else if (alarm5State and MenuState == 11){
+          alarm5State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 10;
+          alarm4State = true;
+        }
+        else if (alarm5State){
+          alarm5State = false;
+          resetMillis();
+          alarm4State = true;
+        }
+        else if (alarm4State and MenuState == 10){
+          alarm4State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 9;
+          alarm3State = true;
+        }
+        else if (alarm4State){
+          alarm4State = false;
+          resetMillis();
+          alarm3State = true;
+        }
+        else if (alarm3State and MenuState == 9){
+          alarm3State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 8;
+          alarm2State = true;
+        }
+        else if (alarm3State){
+          alarm3State = false;
+          resetMillis();
+          alarm2State = true;
+        }
+        else if (alarm2State and MenuState == 8){
+          alarm2State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 7;
+          alarm1State = true;
+        }
+        else if (alarm2State){
+          alarm2State = false;
+          resetMillis();
+          alarm1State = true;
+        }
         else if (testTimerSettingState){
           testTimerSettingState = false;
           resetMillis();
@@ -54,21 +248,21 @@ void doAction() {
           DaySetting = true;
         }
         else if (HoursState){
-          if (Hours == 24)
+          if (Hours == 23)
             Hours = 0;
           else
             Hours++;
             resetMillis();
         }
         else if (MinutesState){
-          if (Minutes == 60)
+          if (Minutes == 59)
             Minutes = 0;
           else
             Minutes++;
           resetMillis();
         }
         else if (SecondsState){
-          if (Seconds == 60)
+          if (Seconds == 59)
             Seconds = 0;
           else
             Seconds++;
@@ -108,6 +302,21 @@ void doAction() {
         if (sleepMode){
           sleepMode = false;
           previousMillis3 = millis();
+        }
+        else if (alarmYesState){
+          alarmYesState = false;
+          resetMillis();
+          alarmNoState = true;
+        }
+        else if (alarmHourDurationState){
+          alarmHourDurationState = false;
+          resetMillis();
+          alarmMinuteDurationState = true;
+        }
+        else if (alarmHourState){
+          alarmHourState = false;
+          resetMillis();
+          alarmMinuteState = true;
         }
         else if (startState){
           startState = false;
@@ -163,6 +372,195 @@ void doAction() {
           sleepMode = false;
           previousMillis3 = millis();
         }
+        else if (alarmValveState){
+          if (tempAlarmValve == 1){
+            tempAlarmValve = 5;
+          }
+          else{
+            tempAlarmValve -= 1;
+          }
+        }
+        else if (alarmMinuteDurationState){
+          if (tempAlarmMinuteDuration == 0){
+            tempAlarmMinuteDuration = 59;
+            resetMillis();
+          }
+          else{
+            tempAlarmMinuteDuration -= 1;
+            resetMillis();
+          }
+        }
+        else if (alarmHourDurationState){
+          if (tempAlarmHourDuration == 0){
+            tempAlarmHourDuration = 9;
+          }
+          else{
+            tempAlarmHourDuration -= 1;
+          }
+        }
+        else if (alarmMinuteState){
+          if (tempAlarmMinute == 0){
+            resetMillis();
+            tempAlarmMinute = 59;
+          }
+          else{
+            resetMillis();
+            tempAlarmMinute -= 1;
+          }
+        }
+        else if (alarmHourState){
+          if (tempAlarmHour == 0){
+            resetMillis();
+            tempAlarmHour = 23;
+          }
+          else{
+            resetMillis();
+            tempAlarmHour -= 1;
+          }
+        }
+        else if (alarmWeekDayState){
+          if (tempWeekDay == 1){
+            tempWeekDay = 7;
+            lcd.clear();
+          }
+          else{
+            tempWeekDay -= 1;
+            lcd.clear();
+          }
+        }
+        else if (alarmTypeNameState){
+          if (tempAlarm.getAlarmType() == 0){
+            tempAlarm.changeAlarmType(3);
+            lcd.clear();
+          }
+          else{
+            tempAlarm.changeAlarmType(tempAlarm.getAlarmType() - 1);
+            lcd.clear();
+          }
+        }
+        else if (repState){
+          repState = false;
+          resetMillis();
+          alarmDayState = true;
+          alarmDayState = true;
+        }
+        else if (alarmDayState or alarmDayState){
+          alarmDayState = false;
+          alarmDayState = false;
+          resetMillis();
+          HourMinState = true;
+        }
+        else if (HourMinState and MenuState == 14){
+          HourMinState = false;
+          resetMillis();
+          durationState = true;
+          lcd.clear();
+          MenuState = 15;
+        }
+        else if (HourMinState){
+          HourMinState = false;
+          resetMillis();
+          durationState = true;
+        }
+        else if (durationState and MenuState == 15){
+          durationState = false;
+          resetMillis();
+          valveState = true;
+          lcd.clear();
+          MenuState = 16;
+        }
+        else if (durationState){
+          durationState = false;
+          resetMillis();
+          valveState = true;
+        }
+        else if (alarm1State){
+          alarm1State = false;
+          resetMillis();
+          alarm2State = true;
+        }
+        else if (alarm2State){
+          alarm2State = false;
+          resetMillis();
+          alarm3State = true;
+        }
+        else if (alarm3State){
+          alarm3State = false;
+          resetMillis();
+          alarm4State = true;
+        }
+        else if (alarm4State and MenuState == 7){
+          alarm4State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 8;
+          alarm5State = true;
+        }
+        else if (alarm4State){
+          alarm4State = false;
+          resetMillis();
+          alarm5State = true;
+        }
+        else if (alarm5State and MenuState == 8){
+          alarm5State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 9;
+          alarm6State = true;
+        }
+        else if (alarm5State){
+          alarm5State = false;
+          resetMillis();
+          alarm6State = true;
+        }
+        else if (alarm6State and MenuState == 9){
+          alarm6State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 10;
+          alarm7State = true;
+        }
+        else if (alarm6State){
+          alarm6State = false;
+          resetMillis();
+          alarm7State = true;
+        }
+        else if (alarm7State and MenuState == 10){
+          alarm7State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 11;
+          alarm8State = true;
+        }
+        else if (alarm7State){
+          alarm7State = false;
+          resetMillis();
+          alarm8State = true;
+        }
+        else if (alarm8State and MenuState == 11){
+          alarm8State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 12;
+          alarm9State = true;
+        }
+        else if (alarm8State){
+          alarm8State = false;
+          resetMillis();
+          alarm9State = true;
+        }
+        else if (alarm9State and MenuState == 12){
+          alarm9State = false;
+          resetMillis();
+          lcd.clear();
+          MenuState = 13;
+          alarm10State = true;
+        }
+        else if (alarm9State){
+          alarm9State = false;
+          resetMillis();
+          alarm10State = true;
+        }
         else if (calibrateTimerSettingState){
           calibrateTimerSettingState = false;
           resetMillis();
@@ -195,21 +593,21 @@ void doAction() {
         }
         else if (HoursState){
           if (Hours == 0)
-            Hours = 24;
+            Hours = 23;
           else
             Hours--;
           resetMillis();  
         }
         else if (MinutesState){
           if (Minutes == 0)
-            Minutes = 60;
+            Minutes = 59;
           else
             Minutes--;
           resetMillis();  
         }
         else if (SecondsState){
           if (Seconds == 0)
-            Seconds = 60;
+            Seconds = 59;
           else
             Seconds--;
           resetMillis();  
@@ -248,6 +646,21 @@ void doAction() {
         if (sleepMode){
           sleepMode = false;
           previousMillis3 = millis();
+        }
+        else if (alarmNoState){
+          alarmNoState = false;
+          resetMillis();
+          alarmYesState = true;
+        }
+        else if (alarmMinuteDurationState){
+          alarmMinuteDurationState = false;
+          resetMillis();
+          alarmHourDurationState = true;
+        }
+        else if (alarmMinuteState){
+          alarmMinuteState = false;
+          resetMillis();
+          alarmHourState = true;
         }
         else if (resetState){
           resetState = false;
@@ -303,12 +716,297 @@ void doAction() {
           sleepMode = false;
           previousMillis3 = millis();
         }
+        else if (okState){
+          okState = false;
+          resetMillis();
+          switch (alarmTry){
+            case 1:  alarm1State  = true; MenuState = 7; break;
+            case 2:  alarm2State  = true; MenuState = 7; break;
+            case 3:  alarm3State  = true; MenuState = 7; break;
+            case 4:  alarm4State  = true; MenuState = 7; break;
+            case 5:  alarm5State  = true; MenuState = 11; break;
+            case 6:  alarm6State  = true; MenuState = 11; break;
+            case 7:  alarm7State  = true; MenuState = 11; break;
+            case 8:  alarm8State  = true; MenuState = 11; break;
+            case 9:  alarm9State  = true; MenuState = 13; break;
+            case 10: alarm10State = true; MenuState = 13; break;
+          }
+          lcd.clear();
+        }
+        else if (alarmYesState){
+          alarmYesState = false;
+          resetMillis();
+          lcd.clear();
+          switch (alarmBeingCalibrated){
+            case 0: alarm1State  = true; MenuState = 7; break;
+            case 1: alarm2State  = true; MenuState = 7; break;
+            case 2: alarm3State  = true; MenuState = 7; break;
+            case 3: alarm4State  = true; MenuState = 7; break;
+            case 4: alarm5State  = true; MenuState = 11; break;
+            case 5: alarm6State  = true; MenuState = 11; break;
+            case 6: alarm7State  = true; MenuState = 11; break;
+            case 7: alarm8State  = true; MenuState = 11; break;
+            case 8: alarm9State  = true; MenuState = 13; break;
+            case 9: alarm10State = true; MenuState = 13; break;
+          }
+          int Valve = 0;
+          switch (tempAlarmValve){
+            case 1: Valve = LED1; break;
+            case 2: Valve = LED2; break;
+            case 3: Valve = LED3; break;
+            case 4: Valve = LED4; break;
+            case 5: Valve = LED5; break;
+          }
+          scheduler.addAlarm(tempWeekDay, tempAlarmHour, tempAlarmMinute, Valve, ((tempAlarmHourDuration * 60 * 60) + (tempAlarmMinuteDuration * 60)), alarmBeingCalibrated, tempAlarm.getAlarmType());
+          scheduler.enable(alarmBeingCalibrated);
+          updateEEPROM(alarmBeingCalibrated);
+        }
+        else if (alarmNoState){
+          alarmNoState = false;
+          resetMillis();
+          lcd.clear();
+          switch (alarmBeingCalibrated){
+            case 0: alarm1State  = true; MenuState = 7; break;
+            case 1: alarm2State  = true; MenuState = 7; break;
+            case 2: alarm3State  = true; MenuState = 7; break;
+            case 3: alarm4State  = true; MenuState = 7; break;
+            case 4: alarm5State  = true; MenuState = 11; break;
+            case 5: alarm6State  = true; MenuState = 11; break;
+            case 6: alarm7State  = true; MenuState = 11; break;
+            case 7: alarm8State  = true; MenuState = 11; break;
+            case 8: alarm9State  = true; MenuState = 13; break;
+            case 9: alarm10State = true; MenuState = 13; break;
+          }
+        }
+        else if (valveState){
+          valveState = false;
+          resetMillis();
+          alarmValveState = true;
+        }
+        else if (durationState){
+          durationState = false;
+          resetMillis();
+          alarmHourDurationState = true;
+        }
+        else if (HourMinState){
+          HourMinState = false;
+          resetMillis();
+          alarmHourState = true;
+        }
+        else if (alarmDayState or alarmWeekDayState){
+          alarmDayState = false;
+          alarmWeekDayState = false;
+          resetMillis();
+          alarmWeekDayState = true;
+        }
+        else if (repState){
+          repState = false;
+          resetMillis();
+          alarmTypeNameState = true;
+        }
+        else if (alarm1State){
+          if (scheduler.getAlarm(0).ON()){
+            alarmTry = 1;
+            alarm1State = false;
+            resetMillis();
+            okState = true;
+            lcd.clear();
+            MenuState = 18;
+          }
+          else{
+            alarm1State = false;
+            resetMillis();
+            repState = true;
+            alarmBeingCalibrated = 0;
+            copyAlarm(0);
+            lcd.clear();
+            MenuState = 14;
+          } 
+        }
+        else if (alarm2State){
+          if (scheduler.getAlarm(1).ON()){
+            alarmTry = 2;
+            alarm1State = false;
+            resetMillis();
+            okState = true;
+            lcd.clear();
+            MenuState = 18;
+          }
+          else{
+            alarm2State = false;
+            resetMillis();
+            repState = true;
+            alarmBeingCalibrated = 1;
+            copyAlarm(1);
+            lcd.clear();
+            MenuState = 14;
+          } 
+        }
+        else if (alarm3State){
+          if (scheduler.getAlarm(2).ON()){
+            alarmTry = 3;
+            alarm1State = false;
+            resetMillis();
+            okState = true;
+            lcd.clear();
+            MenuState = 18;
+          }
+          else{
+            alarm3State = false;
+            resetMillis();
+            repState = true;
+            alarmBeingCalibrated = 2;
+            copyAlarm(2);
+            lcd.clear();
+            MenuState = 14;
+          } 
+        }
+        else if (alarm4State){
+          if (scheduler.getAlarm(3).ON()){
+            alarmTry = 4;
+            alarm1State = false;
+            resetMillis();
+            okState = true;
+            lcd.clear();
+            MenuState = 18;
+          }
+          else{
+            alarm4State = false;
+            resetMillis();
+            repState = true;
+            alarmBeingCalibrated = 3;
+            copyAlarm(3);
+            lcd.clear();
+            MenuState = 14;
+          } 
+        }
+        else if (alarm5State){
+          if (scheduler.getAlarm(4).ON()){
+            alarmTry = 5;
+            alarm1State = false;
+            resetMillis();
+            okState = true;
+            lcd.clear();
+            MenuState = 18;
+          }
+          else{
+            alarm5State = false;
+            resetMillis();
+            repState = true;
+            alarmBeingCalibrated = 4;
+            copyAlarm(4);
+            lcd.clear();
+            MenuState = 14;
+          } 
+        }
+        else if (alarm6State){
+          if (scheduler.getAlarm(5).ON()){
+            alarmTry = 6;
+            alarm1State = false;
+            resetMillis();
+            okState = true;
+            lcd.clear();
+            MenuState = 18;
+          }
+          else{
+            alarm6State = false;
+            resetMillis();
+            repState = true;
+            alarmBeingCalibrated = 5;
+            copyAlarm(5);
+            lcd.clear();
+            MenuState = 14;
+          } 
+        }
+        else if (alarm7State){
+          if (scheduler.getAlarm(6).ON()){
+            alarmTry = 7;
+            alarm1State = false;
+            resetMillis();
+            okState = true;
+            lcd.clear();
+            MenuState = 18;
+          }
+          else{
+            alarm7State = false;
+            resetMillis();
+            repState = true;
+            alarmBeingCalibrated = 6;
+            copyAlarm(6);
+            lcd.clear();
+            MenuState = 14;
+          } 
+        }
+        else if (alarm8State){
+          if (scheduler.getAlarm(7).ON()){
+            alarmTry = 8;
+            alarm1State = false;
+            resetMillis();
+            okState = true;
+            lcd.clear();
+            MenuState = 18;
+          }
+          else{
+            alarm8State = false;
+            resetMillis();
+            repState = true;
+            alarmBeingCalibrated = 7;
+            copyAlarm(7);
+            lcd.clear();
+            MenuState = 14;
+          } 
+        }
+        else if (alarm9State){
+          if (scheduler.getAlarm(8).ON()){
+            alarmTry = 9;
+            alarm1State = false;
+            resetMillis();
+            okState = true;
+            lcd.clear();
+            MenuState = 18;
+          }
+          else{
+            alarm9State = false;
+            resetMillis();
+            repState = true;
+            alarmBeingCalibrated = 8;
+            copyAlarm(8);
+            lcd.clear();
+            MenuState = 14;
+          } 
+        }
+        else if (alarm10State){
+          if (scheduler.getAlarm(9).ON()){
+            alarmTry = 10;
+            alarm1State = false;
+            resetMillis();
+            okState = true;
+            lcd.clear();
+            MenuState = 18;
+          }
+          else{
+            alarm10State = false;
+            resetMillis();
+            repState = true;
+            alarmBeingCalibrated = 9;
+            copyAlarm(9);
+            lcd.clear();
+            MenuState = 14;
+          } 
+        }
+        else if (alarmSettingState){
+          alarmSettingState = false;
+          resetMillis();
+          MenuState = 7;
+          lcd.clear();
+          alarm1State = true;
+        }
         else if (start2State and timerOn){
           //Do Nothing
         }
         else if (start2State){
           timerOn = true;
-          digitalWrite(LED1, HIGH);
+          digitalWrite(TIMERLED, HIGH);
           previousMillis5 = millis();
         }
         else if (testTimerSettingState){
@@ -328,7 +1026,7 @@ void doAction() {
           //Do Nothing
         }
         else if (resetState){
-          digitalWrite(LED1, LOW);
+          digitalWrite(TIMERLED, LOW);
           lcd.clear();
           timerState = 0;
           tempTime = 0;
@@ -337,12 +1035,12 @@ void doAction() {
           EEPROM.write(0, 0);
         }
         else if (stopState){
-          digitalWrite(LED1, LOW);
+          digitalWrite(TIMERLED, LOW);
           timerState = 2;
           tempTime2 += tempTime;
         }
         else if (startState){
-          digitalWrite(LED1, HIGH);
+          digitalWrite(TIMERLED, HIGH);
           timerState = 1;
           tempTime = 0;
           lcd.clear();
@@ -433,6 +1131,75 @@ void doAction() {
           sleepMode = false;
           previousMillis3 = millis();
         }
+        else if (alarmValveState){
+          alarmValveState = false;
+          resetMillis();
+          valveState = true;
+        }
+        else if (alarmHourDurationState or alarmMinuteDurationState){
+          alarmHourDurationState = false;
+          alarmMinuteDurationState = false;
+          resetMillis();
+          durationState = true;
+        }
+        else if (alarmHourState or alarmMinuteState){
+          alarmHourState = false;
+          alarmMinuteState = false;
+          resetMillis();
+          HourMinState = true;
+        }
+        else if (alarmWeekDayState){
+          alarmWeekDayState = false;
+          resetMillis();
+          alarmDayState = true;
+          alarmDayState = true;
+        }
+        else if (alarmTypeNameState){
+          alarmTypeNameState = false;
+          resetMillis();
+          repState = true;
+        }
+        else if (repState or alarmDayState or HourMinState or durationState or valveState){
+          repState = false;
+          alarmDayState = false;
+          alarmDayState = false;
+          HourMinState = false;
+          durationState = false;
+          valveState = false;
+//          switch (alarmBeingCalibrated){
+//            case 0: alarm1State  = true; MenuState = 7; break;
+//            case 1: alarm2State  = true; MenuState = 7; break;
+//            case 2: alarm3State  = true; MenuState = 7; break;
+//            case 3: alarm4State  = true; MenuState = 7; break;
+//            case 4: alarm5State  = true; MenuState = 11; break;
+//            case 5: alarm6State  = true; MenuState = 11; break;
+//            case 6: alarm7State  = true; MenuState = 11; break;
+//            case 7: alarm8State  = true; MenuState = 11; break;
+//            case 8: alarm9State  = true; MenuState = 13; break;
+//            case 9: alarm10State = true; MenuState = 13; break;
+//          }
+          resetMillis();
+          lcd.clear();
+          MenuState = 17;
+          alarmYesState = true;
+        }
+        else if (alarm1State or alarm2State or alarm3State or alarm4State or alarm5State or
+                 alarm6State or alarm7State or alarm8State or alarm9State or alarm10State){
+          alarm1State = false;
+          alarm2State = false;
+          alarm3State = false;
+          alarm4State = false;
+          alarm5State = false;
+          alarm6State = false;
+          alarm7State = false;
+          alarm8State = false;
+          alarm9State = false;
+          alarm10State = false;
+          resetMillis();
+          MenuState = 3;
+          lcd.clear();
+          alarmSettingState = true;
+        }
         else if (MenuState == 6){
           start2State = false;
           resetMillis();
@@ -467,7 +1234,7 @@ void doAction() {
           lcd.clear();
           MenuState = 4;
           calibrateTimerSettingState = true;
-          digitalWrite(LED1, LOW);
+          digitalWrite(TIMERLED, LOW);
         }
         else if (MenuState == 4){
           calibrateTimerSettingState = false;
