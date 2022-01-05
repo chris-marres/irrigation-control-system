@@ -16,7 +16,7 @@ In this Demo the valves are simulated with led's. In an actual system instead of
 
 * The user can set the local time to the clock through an awesome menu.
 
-* There is also a power save feature. Whenever the screen is inactive (when there is no input from the buttons) for more than 30 seconds, the lcd backlight is turned of.
+* There is also a power save feature. Whenever the screen is inactive (when there is no input from the buttons) for more than 30 seconds, the lcd backlight is turned off.
 
 * You can navigate the menu and make changes to alarms or other settings while an alarm is active.
 
